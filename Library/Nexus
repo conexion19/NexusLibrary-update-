@@ -1838,12 +1838,14 @@ Library.MiniMessageToRichText = MiniMessageToRichText
 local New = Creator.New
 
 local GUI = New("ScreenGui", {
-    Parent = game:GetService("CoreGui"),
-    Name = "FluentInterface",
-    IgnoreGuiInset = true,
-    ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
-    DisplayOrder = 999  -- Высокий приоритет отображения
+	Parent = game:GetService("CoreGui"),
+	Name = "FluentInterface",
+	IgnoreGuiInset = true,
+	ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+	DisplayOrder = 999,
+	ResetOnSpawn = false
 })
+
 Library.GUI = GUI
 ProtectGui(GUI)
 
