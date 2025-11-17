@@ -11062,9 +11062,6 @@ AddSignal(MinimizeButton.MouseButton1Click, function()
 end)
 
 
-ensureTopMost()
-
-
 AddSignal(MobileMinimizeButton.MouseButton1Click, function()
 
 
