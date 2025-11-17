@@ -20,7 +20,34 @@ end
 
 local RenderStepped = RunService.RenderStepped
 
-local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
+local ProtectGui = protectgui or (syn and syn.protect_gui) or function(gui)
+    if gui and gui:IsA("Instance") then
+        pcall(function()
+            gui.Parent = game:GetService("CoreGui")
+        end)
+    end
+end
+
+-- Функция для обеспечения поверхностного отображения
+local function ensureTopMost()
+    if Library.GUI then
+        Library.GUI.DisplayOrder = 999
+        Library.GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        
+        -- Периодическая проверка и восстановление приоритета
+        task.spawn(function()
+            while Library.GUI and Library.GUI.Parent do
+                if Library.GUI.DisplayOrder < 999 then
+                    Library.GUI.DisplayOrder = 999
+                end
+                wait(5)
+            end
+        end)
+    end
+end
+
+-- Примените защиту
+ProtectGui(GUI)
 
 local Themes = {
 	Names = {
@@ -1810,10 +1837,12 @@ Library.MiniMessageToRichText = MiniMessageToRichText
 
 local New = Creator.New
 
-GUI = New("ScreenGui", {
-    Parent = LocalPlayer:WaitForChild("PlayerGui"),
-    ZIndexBehavior = Enum.ZIndexBehavior.Global, -- Добавьте эту строку
-    ResetOnSpawn = false,
+local GUI = New("ScreenGui", {
+    Parent = game:GetService("CoreGui"),
+    Name = "FluentInterface",
+    IgnoreGuiInset = true,
+    ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+    DisplayOrder = 999  -- Высокий приоритет отображения
 })
 Library.GUI = GUI
 ProtectGui(GUI)
@@ -11052,7 +11081,7 @@ AddSignal(MinimizeButton.MouseButton1Click, function()
 end)
 
 
-
+ensureTopMost()
 
 
 AddSignal(MobileMinimizeButton.MouseButton1Click, function()
@@ -11071,8 +11100,6 @@ AddSignal(MobileMinimizeButton.MouseButton1Click, function()
 
 
 end)
-
-    
 
 if RunService:IsStudio() then task.wait(0.01) end
 return Library, SaveManager, InterfaceManager, Mobile
