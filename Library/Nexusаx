@@ -1,4 +1,4 @@
-local Lighting = game:GetService("Lighting")
+посмотри в  этой библеотеке есть система выгрузки ? UnLoad типо - local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local UserInputService = game:GetService("UserInputService")
