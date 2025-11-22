@@ -1825,7 +1825,7 @@ Library.MiniMessageToRichText = MiniMessageToRichText
 local New = Creator.New
 
 local GUI = New("ScreenGui", {
-    Parent = LocalPlayer:WaitForChild("PlayerGui"),
+    Parent = LocalPlayer:WaitForChild("CoreGui"),
     DisplayOrder = 999,
     ZIndexBehavior = Enum.ZIndexBehavior.Global, 
     ResetOnSpawn = false,
