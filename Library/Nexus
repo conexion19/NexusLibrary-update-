@@ -1824,7 +1824,7 @@ Library.MiniMessageToRichText = MiniMessageToRichText
 
 local New = Creator.New
 
-local GUI = New("ScreenGui", {
+local GUI = Creator.New("ScreenGui", {
     Parent = game:GetService("CoreGui"), 
     ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
     ResetOnSpawn = false,
