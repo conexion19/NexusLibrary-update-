@@ -11084,5 +11084,7 @@ AddSignal(MobileMinimizeButton.MouseButton1Click, function()
 
 end)
 
+    
+
 if RunService:IsStudio() then task.wait(0.01) end
 return Library, SaveManager, InterfaceManager, Mobile
