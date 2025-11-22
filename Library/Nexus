@@ -1,5 +1,4 @@
 
-
 local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -1998,7 +1997,6 @@ function AcrylicBlur()
 		Creator.AddSignal(comp:GetPropertyChangedSignal("AbsolutePosition"), function()
 			onChange(comp)
 		end)
-
 		Creator.AddSignal(comp:GetPropertyChangedSignal("AbsoluteSize"), function()
 			onChange(comp)
 		end)
@@ -2619,7 +2617,7 @@ Components.Tab = (function()
 			},
 		}, {
 			New("UICorner", {
-				CornerRadius = UDim.new(0, 10),
+				CornerRadius = UDim.new(0, 6),
 			}),
 			New("TextLabel", {
 				AnchorPoint = Vector2.new(0, 0.5),
@@ -2998,7 +2996,6 @@ Components.Tab = (function()
 				local SectionFrame = Components.Section(SectionTitle, SubTab.Container, Icon)
 				Section.Container = SectionFrame.Container
 				Section.ScrollFrame = SubTab.Container
-
 				setmetatable(Section, Elements)
 				return Section
 			end
@@ -4491,9 +4488,9 @@ Components.Window = (function()
 		Window.TabDisplay = New("TextLabel", {
 			RichText = true,
 			Text = "Tab",
-			TextTransparency = 0,
+			TextTransparency = 1,
 			FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
-			TextSize = 20,
+			TextSize = 28,
 			TextXAlignment = "Center",
 			TextYAlignment = "Center",
 			Size = UDim2.new(1, -16, 0, 28),
@@ -4515,15 +4512,15 @@ Components.Window = (function()
 			BackgroundTransparency = 1,
 		})
 
-		Window.ContainerCanvas = New("Frame", {
-			Size = UDim2.new(1, -Window.TabWidth - 32, 1, -102),
-			Position = UDim2.fromOffset(Window.TabWidth + 26, 90),
-			BackgroundTransparency = 1,
-			ClipsDescendants = true,
-		}, {
-			Window.ContainerAnim,
-			Window.ContainerHolder
-		})
+Window.ContainerCanvas = New("Frame", {
+    Size = UDim2.new(1, -Window.TabWidth - 32, 1, -102),
+    Position = UDim2.fromOffset(Window.TabWidth + 26, 54),
+    BackgroundTransparency = 1,
+    ClipsDescendants = true,
+}, {
+    Window.ContainerAnim,
+    Window.ContainerHolder
+})
 
 		local backgroundTransparency = Config.BackgroundTransparency
 		if backgroundTransparency == nil then
@@ -9001,7 +8998,6 @@ local SaveManager = {} do
 
 
 
-
 		section:AddButton({Title = "Load config", Callback = function()
 
 
@@ -10997,7 +10993,6 @@ Creator.AddSignal(RunService.Heartbeat, function()
 
 
 		local viewportSize = workspace.Camera.ViewportSize
-
 
 		local minimizerSize = activeMin.AbsoluteSize
 
