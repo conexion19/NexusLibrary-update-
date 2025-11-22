@@ -28,25 +28,6 @@ local ProtectGui = protectgui or (syn and syn.protect_gui) or function(gui)
     end
 end
 
--- Переместите определение Library выше
-local Library = {
-    Version = "1.2.2",
-    OpenFrames = {},
-    Options = {},
-    Themes = Themes.Names,
-    Windows = {},
-    Window = nil,
-    WindowFrame = nil,
-    Unloaded = false,
-    Creator = nil,
-    DialogOpen = false,
-    UseAcrylic = false,
-    Acrylic = false,
-    Transparency = true,
-    MinimizeKeybind = nil,
-    MinimizeKey = Enum.KeyCode.LeftControl,
-}
-
 local function ensureTopMost()
     if Library.GUI then
         Library.GUI.DisplayOrder = 999
@@ -89,6 +70,26 @@ local Themes = {
 		"Bloody",
 		"Arctic"
 	},
+
+-- Переместите определение Library выше
+local Library = {
+    Version = "1.2.2",
+    OpenFrames = {},
+    Options = {},
+    Themes = Themes.Names,
+    Windows = {},
+    Window = nil,
+    WindowFrame = nil,
+    Unloaded = false,
+    Creator = nil,
+    DialogOpen = false,
+    UseAcrylic = false,
+    Acrylic = false,
+    Transparency = true,
+    MinimizeKeybind = nil,
+    MinimizeKey = Enum.KeyCode.LeftControl,
+}
+
 	Dark = {
 		Name = "Dark",
 		Accent = Color3.fromRGB(96, 205, 255),
