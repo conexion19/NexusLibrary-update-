@@ -1,3 +1,17 @@
+--[[
+
+███████╗██╗░░░░░██╗░░░██╗███████╗███╗░░██╗████████╗  ██████╗░██╗░░░░░██╗░░░██╗░██████╗
+██╔════╝██║░░░░░██║░░░██║██╔════╝████╗░██║╚══██╔══╝  ██╔══██╗██║░░░░░██║░░░██║██╔════╝
+█████╗░░██║░░░░░██║░░░██║█████╗░░██╔██╗██║░░░██║░░░  ██████╔╝██║░░░░░██║░░░██║╚█████╗░
+██╔══╝░░██║░░░░░██║░░░██║██╔══╝░░██║╚████║░░░██║░░░  ██╔═══╝░██║░░░░░██║░░░██║░╚═══██╗
+██║░░░░░███████╗╚██████╔╝███████╗██║░╚███║░░░██║░░░  ██║░░░░░███████╗╚██████╔╝██████╔╝
+╚═╝░░░░░╚══════╝░╚═════╝░╚══════╝╚═╝░░╚══╝░░░╚═╝░░░  ╚═╝░░░░░╚══════╝░╚═════╝░╚═════╝░
+
+A modified version of Fluent
+https://fluent-pl.us
+
+]]
+
 local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -1811,13 +1825,10 @@ Library.MiniMessageToRichText = MiniMessageToRichText
 local New = Creator.New
 
 local GUI = New("ScreenGui", {
-    Parent = game:GetService("CoreGui") or LocalPlayer:WaitForChild("PlayerGui"), 
-    ResetOnSpawn = false,
-    ZIndexBehavior = Enum.ZIndexBehavior.Global, 
-    DisplayOrder = 999, 
-    IgnoreGuiInset = true,
+    Parent = game:GetService("CoreGui"), 
+    DisplayOrder = 999,
+    ZIndexBehavior = Enum.ZIndexBehavior.Global,
 })
-
 Library.GUI = GUI
 ProtectGui(GUI)
 
@@ -11074,8 +11085,6 @@ AddSignal(MobileMinimizeButton.MouseButton1Click, function()
 
 
 end)
-
-    
 
 if RunService:IsStudio() then task.wait(0.01) end
 return Library, SaveManager, InterfaceManager, Mobile
